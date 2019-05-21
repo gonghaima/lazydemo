@@ -7,9 +7,43 @@ const Loading = () => (
     <h5>Loading...</h5>
   </div>
 );
+/**Lazy loading text */
 
+// const Post = ({ id, title, body }) => (
+//   <div className="post">
+//     <div className="post-body">
+//       <h4>{title}</h4>
+//       <p>{body}</p>
+//     </div>
+//   </div>
+// );
+
+/** Lazy loading images */
+// const Post = ({ id, title, body }) => (
+//   <div className="post">
+//     <LazyLoad>
+//       <div className="post-img">
+//         <img src={`https://picsum.photos/id/${id}/200/200`} alt="..." />
+//       </div>
+//     </LazyLoad>
+//     <div className="post-body">
+//       <h4>{title}</h4>
+//       <p>{body}</p>
+//     </div>
+//   </div>
+// );
+
+/** Lazy loading images with placeholder */
 const Post = ({ id, title, body }) => (
   <div className="post">
+    <LazyLoad
+      once={true}
+      placeholder={<img src={`https://picsum.photos/id/${id}/5/5`} alt="..." />}
+    >
+      <div className="post-img">
+        <img src={`https://picsum.photos/id/${id}/1000/1000`} alt="..." />
+      </div>
+    </LazyLoad>
     <div className="post-body">
       <h4>{title}</h4>
       <p>{body}</p>
